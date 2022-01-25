@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 # NAME
-NAME		=	zombieTester
+NAME		=	tester
 
 # DIR
 S_DIR		=	srcs/
@@ -23,13 +23,11 @@ O_DIR		=	bin/obj/
 CC			=	c++
 CFLAGS		=	-Werror -Wextra -Wall -I$(I_DIR)
 LDFLAGS		=	
-DEPEND		=	
+DEPEND		=	$(I_DIR)Fixed.hpp
 
 # SRCS
 SOURCES		=	main.cpp \
-				newZombie.cpp \
-				randomChump.cpp \
-				Zombie.cpp
+				Fixed.cpp
 SRCS		=	$(addprefix $(S_DIR),$(SOURCES))
 
 # OBJS
