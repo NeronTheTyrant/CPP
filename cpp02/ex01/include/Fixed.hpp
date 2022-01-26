@@ -11,18 +11,22 @@ class	Fixed {
 		Fixed(void);
 		Fixed(Fixed & copy);
 		Fixed(int n);
+		Fixed(float f);
 		~Fixed(void);
 
-		Fixed & operator=(const Fixed & rhs);
+		Fixed & operator=(Fixed const & rhs);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 
-		int		getFractBits(void) const;
+		static int	getFractBits(void);
+        :q
+		float	toFloat(void) const;
+		int		toInt(void) const;
 
 	private:
 		int					_raw;
-		static const int	_fractBits = 8;
+		static int const	_fractBits = 8;
 };
 
 std::ostream &	operator<< (std::ostream & o, Fixed const & rhs);
