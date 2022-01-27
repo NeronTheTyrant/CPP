@@ -2,6 +2,7 @@
 
 #include "Fixed.hpp"
 #include <iostream>
+#include <iomanip>
 #include <cmath>
 
 Fixed::Fixed (void) {
@@ -9,7 +10,7 @@ Fixed::Fixed (void) {
 	std::cout << "Fixed: Default constructor" << std::endl;
 }
 
-Fixed::Fixed (Fixed & copy) {
+Fixed::Fixed (Fixed const & copy) {
 	*this = copy;
 	std::cout << "Fixed: Copy constructor" << std::endl;
 }
@@ -18,6 +19,7 @@ Fixed::Fixed (int n) {
 	this->_raw = n << Fixed::_fractBits;
 	std::cout << "Fixed: Int constructor" << std::endl;
 }
+
 Fixed::Fixed (float f) {
 	this->_raw = round(f * (1 << Fixed::_fractBits));
 	std::cout << "Fixed: Float constructor" << std::endl;
@@ -76,28 +78,39 @@ bool	Fixed::operator!= (Fixed const & rhs) const {
 }
 
 Fixed	Fixed::operator+ (Fixed const & rhs) const {
-	return Fixed(this->_raw + rhs_raw);
+	Fixed	tmp;
+	tmp._raw = this->_raw + rhs._raw;
+	return tmp;
 }
 
 Fixed	Fixed::operator- (Fixed const & rhs) const {
-	return Fixed(this->_raw - rhs_raw);
+	Fixed	tmp;
+	tmp._raw = this->_raw - rhs._raw;
+	return tmp;
 }
 
 Fixed	Fixed::operator* (Fixed const & rhs) const {
-	return Fixed(this->_raw * rhs_raw);
+	Fixed	tmp;
+	tmp._raw = (this->_raw * rhs._raw) >> Fixed::_fractBits;
+	std::cout << this->_raw << " * " << rhs._raw << " = " << tmp._raw << std::endl;
+	return tmp;
 }
 
 Fixed	Fixed::operator/ (Fixed const & rhs) const {
-	return Fixed(this->_raw / rhs_raw);
+	Fixed	tmp;
+	tmp._raw = (this->_raw / rhs._raw) << Fixed::_fractBits;
+	std::cout << this->_raw << " / " << rhs._raw << " = " << tmp._raw << std::endl;
+	std::cout << this->toFloat() << " / " << rhs.toFloat() << " = " << tmp.toFloat() << std::endl;
+	return tmp;
 }
 
 Fixed &	Fixed::operator++ (void) {
-	this->raw++;
+	this->_raw++;
 	return *this;
 }
 
 Fixed	Fixed::operator++ (int) {
-	Fixed	tmp(this->_raw);
+	Fixed	tmp(*this);
 	operator++();
 	return (tmp);
 }
@@ -108,7 +121,7 @@ Fixed &	Fixed::operator-- (void) {
 }
 
 Fixed	Fixed::operator-- (int) {
-	Fixed	tmp(this->_raw);
+	Fixed	tmp(*this);
 	operator--();
 	return (tmp);
 }
@@ -120,7 +133,7 @@ Fixed &	Fixed::min (Fixed & a, Fixed & b) {
 		return (b);
 }
 
-Fixed & const	Fixed::min (Fixed & const a, Fixed & const b) {
+Fixed const &	Fixed::min (Fixed const & a, Fixed const & b) {
 	if (a < b)
 		return (a);
 	else
@@ -133,7 +146,8 @@ Fixed &	Fixed::max (Fixed & a, Fixed & b) {
 	else
 		return (b);
 }
-Fixed & const	Fixed::max (Fixed & const a, Fixed & const b) {
+
+Fixed const &	Fixed::max (Fixed const & a, Fixed const &  b) {
 	if (a > b)
 		return (a);
 	else
@@ -162,12 +176,15 @@ int	Fixed::getFractBits (void) {
 
 std::ostream & operator<< (std::ostream & o, Fixed const & rhs) {
 	int	fpart;
-	
-	fpart = rhs.getRawBits() & (1 << (Fixed::getFractBits() - 1));
+
+	fpart = rhs.getRawBits() & ((1 << Fixed::getFractBits()) - 1);
+//	o << "mask =" << (1 << (Fixed::getFractBits() - 1)) << std::endl;
+//	o << "fpart = " << fpart << std::endl;
 	if (fpart == 0)
 		o << rhs.toInt();
 	else
-		o << std::fixed << rhs.toFloat();
+		o << rhs.toFloat();
+//		o << rhs.toInt() << "." << (fpart * 390625);
 	return o;
 }
 

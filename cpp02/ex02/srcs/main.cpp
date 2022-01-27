@@ -4,12 +4,18 @@
 #include "Fixed.hpp"
 
 int main(void) {
-	Fixed a(-42);
-	Fixed b(752.54224f);
-	Fixed c(74);
-	
-	//a.setRawBits(2147483647);
-	std::cout << "Raw: " << a.getRawBits() << std::endl << "Real: " << a << std::endl;
-	std::cout << "Raw: " << b.getRawBits() << std::endl << "Real: " << b << std::endl;
+	Fixed a;
+	Fixed const b ( Fixed (5.05f) * Fixed(2));
+	Fixed const c ( Fixed (34.56f) / Fixed (1.234f));
+
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+
+	std::cout << b << std::endl;
+	std::cout << c << std::endl;
+
+	std::cout << Fixed::max(a, b) << std::endl;
 	return 0;
 }
