@@ -9,7 +9,7 @@ Fixed::Fixed (void) {
 	std::cout << "Fixed: Default constructor" << std::endl;
 }
 
-Fixed::Fixed (Fixed & copy) {
+Fixed::Fixed (Fixed const & copy) {
 	*this = copy;
 	std::cout << "Fixed: Copy constructor" << std::endl;
 }
@@ -43,11 +43,11 @@ void	Fixed::setRawBits (int const raw) {
 }
 
 float	Fixed::toFloat (void) const {
-	return double(this->_raw) / double(1 << this->_fractBits);
+	return double(this->_raw) / double(1 << Fixed::_fractBits);
 }
 
 int	Fixed::toInt (void) const {
-	return this->_raw >> this->_fractBits;
+	return this->_raw >> Fixed::_fractBits;
 }
 
 int	Fixed::getFractBits (void) {
@@ -57,9 +57,9 @@ int	Fixed::getFractBits (void) {
 std::ostream & operator<< (std::ostream & o, Fixed const & rhs) {
 	int	fpart;
 	
-	fpart = rhs.getRawBits() & (1 << (Fixed::getFractBits() - 1));
+	fpart = rhs.getRawBits() & ((1 << Fixed::getFractBits()) - 1);
 	if (fpart == 0)
-		o << (rhs.getRawBits() >> Fixed::getFractBits());
+		o << rhs.toInt();
 	else
 		o << std::fixed << rhs.toFloat();
 	return o;

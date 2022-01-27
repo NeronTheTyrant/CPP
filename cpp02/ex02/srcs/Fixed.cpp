@@ -91,16 +91,13 @@ Fixed	Fixed::operator- (Fixed const & rhs) const {
 
 Fixed	Fixed::operator* (Fixed const & rhs) const {
 	Fixed	tmp;
-	tmp._raw = (this->_raw * rhs._raw) >> Fixed::_fractBits;
-	std::cout << this->_raw << " * " << rhs._raw << " = " << tmp._raw << std::endl;
+	tmp._raw = ((int64_t)this->_raw * (int64_t)rhs._raw) / (1 << Fixed::_fractBits);
 	return tmp;
 }
 
 Fixed	Fixed::operator/ (Fixed const & rhs) const {
 	Fixed	tmp;
-	tmp._raw = (this->_raw / rhs._raw) << Fixed::_fractBits;
-	std::cout << this->_raw << " / " << rhs._raw << " = " << tmp._raw << std::endl;
-	std::cout << this->toFloat() << " / " << rhs.toFloat() << " = " << tmp.toFloat() << std::endl;
+	tmp._raw = (int64_t)this->_raw * (1 << Fixed::_fractBits) / rhs._raw;
 	return tmp;
 }
 

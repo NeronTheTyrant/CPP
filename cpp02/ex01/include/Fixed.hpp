@@ -9,7 +9,7 @@ class	Fixed {
 
 	public:
 		Fixed(void);
-		Fixed(Fixed & copy);
+		Fixed(Fixed const & copy);
 		Fixed(int n);
 		Fixed(float f);
 		~Fixed(void);
@@ -20,7 +20,6 @@ class	Fixed {
 		void	setRawBits(int const raw);
 
 		static int	getFractBits(void);
-        :q
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
