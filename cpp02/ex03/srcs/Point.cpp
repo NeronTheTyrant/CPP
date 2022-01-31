@@ -13,11 +13,11 @@
 #include "Point.hpp"
 #include <iostream>
 
-Point::Point (void) : _x(0), _y(0) {
+Point::Point (void) : _x(0), _y(0) { 
 //	std::cout << "Point: Default Constructor" << std::endl;
 }
 
-Point::Point (Point const & copy) {
+Point::Point (Point const & copy) : _x(copy._x), _y(copy._y) {
 //	std::cout << "Point: Copy Constructor" << std::endl;
 	*this = copy;
 }
@@ -42,6 +42,13 @@ Fixed	Point::getX (void) const {
 
 Fixed	Point::getY (void) const {
 	return this->_y;
+}
+
+bool	operator==(Point const & lhs, Point const & rhs) {
+	if (lhs.getX() != rhs.getX() || lhs.getY() != rhs.getY())
+		return (false);
+	else
+		return (true);
 }
 
 std::ostream &	operator<<(std::ostream & o, Point const & rhs) {

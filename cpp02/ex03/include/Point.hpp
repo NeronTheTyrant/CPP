@@ -32,5 +32,6 @@ class	Point {
 };
 
 std::ostream &	operator<<(std::ostream & o, Point const & rhs);
+bool	operator==(Point const & lhs, Point const & rhs);
 
 #endif
