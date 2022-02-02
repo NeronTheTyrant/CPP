@@ -38,7 +38,7 @@
 "default::default(default const & copy) {\n" \
 "	std::cout << \"default: Copy Constructor\" << std::endl;\n" \
 "	*this = copy;\n" \
-"}\n \
+"}\n" \
 "\n" \
 "default::~default (void) {\n" \
 "	std::cout << \"default: Destructor\" << std::endl;\n" \
