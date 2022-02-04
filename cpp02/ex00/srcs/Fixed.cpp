@@ -1,4 +1,15 @@
-/*	Header	*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/03 20:34:40 by mlebard           #+#    #+#             */
+/*   Updated: 2022/02/03 20:34:42 by mlebard          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 
 #include "Fixed.hpp"
 #include <iostream>
@@ -31,5 +42,3 @@ int	Fixed::getRawBits (void) const {
 void	Fixed::setRawBits (int const raw) {
 	this->_raw = raw;
 }
-
-//static const int	Fixed::_fractBits = 8;

@@ -6,12 +6,12 @@
 #    By: mlebard <mlebard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 17:27:08 by mlebard           #+#    #+#              #
-#    Updated: 2021/12/19 20:34:39 by mlebard          ###   ########.fr        #
+#    Updated: 2022/02/03 20:25:55 by mlebard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # NAME
-NAME		=	
+NAME		=	claptraptest
 
 # DIR
 S_DIR		=	srcs/
@@ -21,12 +21,16 @@ O_DIR		=	bin/obj/
 
 # COMPILE
 CC			=	c++
-CFLAGS		=	-Werror -Wextra -Wall -I$(I_DIR)
+CFLAGS		=	-Werror -Wextra -Wall -Wshadow -Wno-shadow -I$(I_DIR)
 LDFLAGS		=	
-DEPEND		=	
+DEPEND		=	$(I_DIR)ClapTrap.hpp $(I_DIR)ScavTrap.hpp $(I_DIR)FragTrap.hpp $(I_DIR)DiamondTrap.hpp
 
 # SRCS
-SOURCES		=	main.cpp
+SOURCES		=	main.cpp \
+				ClapTrap.cpp \
+				ScavTrap.cpp \
+				FragTrap.cpp \
+				DiamondTrap.cpp
 SRCS		=	$(addprefix $(S_DIR),$(SOURCES))
 
 # OBJS

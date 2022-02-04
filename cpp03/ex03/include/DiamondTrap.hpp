@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 20:34:55 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/03 20:34:56 by mlebard          ###   ########.fr       */
+/*   Created: 2022/02/03 17:14:09 by mlebard           #+#    #+#             */
+/*   Updated: 2022/02/03 20:17:52 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include <string>
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
-class	Fixed {
-
+class	DiamondTrap : public ScavTrap, public FragTrap {
 	public:
-		Fixed(void);
-		Fixed(Fixed & copy);
-		~Fixed(void);
+		DiamondTrap (void);
+		DiamondTrap (DiamondTrap const & copy);
+		DiamondTrap (std::string const & name);
+		~DiamondTrap (void);
 
-		Fixed & operator=(const Fixed & rhs);
-
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
-
+		DiamondTrap & operator=(DiamondTrap const & rhs);
+		void	whoAmI (void);
 	private:
-		int					_raw;
-		static const int	_fractBits;
+		std::string	__name;
 };
 
 #endif

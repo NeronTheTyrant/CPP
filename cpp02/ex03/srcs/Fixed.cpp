@@ -1,4 +1,14 @@
-/*	Header	*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/03 20:36:14 by mlebard           #+#    #+#             */
+/*   Updated: 2022/02/03 20:36:42 by mlebard          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "Fixed.hpp"
 #include <iostream>
@@ -6,31 +16,25 @@
 #include <cmath>
 
 Fixed::Fixed (void) : _raw(0){
-//	std::cout << "Fixed: Default constructor" << std::endl;
 }
 
 Fixed::Fixed (Fixed const & copy) {
 	*this = copy;
-//	std::cout << "Fixed: Copy constructor" << std::endl;
 }
 
 Fixed::Fixed (int n) {
 	this->_raw = n << Fixed::_fractBits;
-//	std::cout << "Fixed: Int constructor" << std::endl;
 }
 
 Fixed::Fixed (float f) {
 	this->_raw = round(f * (1 << Fixed::_fractBits));
-//	std::cout << "Fixed: Float constructor" << std::endl;
 }
 
 Fixed::~Fixed (void) {
-//	std::cout << "Fixed: Destructor" << std::endl;
 }
 
 Fixed &	Fixed::operator= (Fixed const & rhs) {
 	this->_raw = rhs._raw;
-//	std::cout << "Fixed: Assign operator" << std::endl;
 	return *this;
 }
 
@@ -174,14 +178,9 @@ std::ostream & operator<< (std::ostream & o, Fixed const & rhs) {
 	int	fpart;
 
 	fpart = rhs.getRawBits() & ((1 << Fixed::getFractBits()) - 1);
-//	o << "mask =" << (1 << (Fixed::getFractBits() - 1)) << std::endl;
-//	o << "fpart = " << fpart << std::endl;
 	if (fpart == 0)
 		o << rhs.toInt();
 	else
 		o << rhs.toFloat();
-//		o << rhs.toInt() << "." << (fpart * 390625);
 	return o;
 }
-
-//static const int	Fixed::_fractBits = 8;

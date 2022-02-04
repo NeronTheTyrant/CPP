@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/03 20:34:55 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/03 20:34:56 by mlebard          ###   ########.fr       */
+/*   Created: 2022/02/03 17:36:07 by mlebard           #+#    #+#             */
+/*   Updated: 2022/02/03 17:36:13 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-#ifndef FIXED_HPP
-# define FIXED_HPP
+#include <string>
+#include "ClapTrap.hpp"
 
-class	Fixed {
-
+class	ScavTrap : public virtual ClapTrap {
 	public:
-		Fixed(void);
-		Fixed(Fixed & copy);
-		~Fixed(void);
+		ScavTrap (void);
+		ScavTrap (ScavTrap const & copy);
+		ScavTrap (std::string const & name);
+		~ScavTrap (void);
 
-		Fixed & operator=(const Fixed & rhs);
+		ScavTrap & operator=(ScavTrap const & rhs);
 
-		int		getRawBits(void) const;
-		void	setRawBits(int const raw);
+		void	attack (const std::string & target);
+		void	guardGate (void);
+
+	protected:
+		void	initHP(void);
+		void	initEP(void);
+		void	initAD(void);
 
 	private:
-		int					_raw;
-		static const int	_fractBits;
 };
 
 #endif
