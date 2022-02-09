@@ -6,7 +6,7 @@
 #    By: mlebard <mlebard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 17:27:08 by mlebard           #+#    #+#              #
-#    Updated: 2022/02/09 15:52:05 by mlebard          ###   ########.fr        #
+#    Updated: 2022/02/09 16:50:56 by mlebard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,15 +23,14 @@ O_DIR		=	bin/obj/
 CC			=	c++
 CFLAGS		=	-Werror -Wextra -Wall -std=c++98 -I$(I_DIR)
 LDFLAGS		=	
-DEPEND		=	$(I_DIR)Animal.hpp $(I_DIR)Cat.hpp $(I_DIR)Dog.hpp $(I_DIR)WrongAnimal.hpp $(I_DIR)WrongCat.hpp
+DEPEND		=	$(I_DIR)AAnimal.hpp $(I_DIR)Cat.hpp $(I_DIR)Dog.hpp $(I_DIR)Brain.hpp
 
 # SRCS
 SOURCES		=	main.cpp \
-				Animal.cpp \
+				AAnimal.cpp \
 				Dog.cpp \
 				Cat.cpp \
-				WrongAnimal.cpp \
-				WrongCat.cpp
+				Brain.cpp
 SRCS		=	$(addprefix $(S_DIR),$(SOURCES))
 
 # OBJS
