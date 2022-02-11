@@ -6,12 +6,14 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 18:43:22 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/09 18:46:43 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/11 13:39:13 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
+
+# include "AMateria.hpp"
 
 class	IMateriaSource {
 	public:
