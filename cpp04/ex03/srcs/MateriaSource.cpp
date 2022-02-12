@@ -33,8 +33,7 @@ MateriaSource &	MateriaSource::operator= (MateriaSource const & rhs) {
 }
 
 void	MateriaSource::learnMateria (AMateria * m) {
-	AMateria * copy = m->clone();
-	this->_inv.add(copy);
+	this->_inv.add(m);
 }
 
 AMateria *	MateriaSource::createMateria (std::string const & type) {
