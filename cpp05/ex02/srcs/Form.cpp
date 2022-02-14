@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:54:02 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/14 17:44:15 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/14 18:09:42 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,9 @@ void	Form::beSigned (Bureaucrat const & b) {
 	else
 		this->_signed = 1;
 }
+
+void	Form::checkExecute (Bureaucrat const & executor) const {
+	if 
 
 std::ostream &	operator<< (std::ostream & o, Form const & rhs) {
 	o << "Form " << rhs.getName() << ", ";

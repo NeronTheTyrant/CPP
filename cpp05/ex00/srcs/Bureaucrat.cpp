@@ -3,27 +3,27 @@
 
 Bureaucrat::Bureaucrat (void)
 	: _name("none"), _grade(150) {
-	std::cout << "Bureaucrat: Default Constructor" << std::endl;
+//	std::cout << "Bureaucrat: Default Constructor" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const & copy)
 	: _name(copy._name) {
-	std::cout << "Bureaucrat: Copy Constructor" << std::endl;
+//	std::cout << "Bureaucrat: Copy Constructor" << std::endl;
 	this->setGrade(copy._grade);
 }
 
 Bureaucrat::Bureaucrat (std::string const & name, int const & grade)
 	: _name(name) {
-	std::cout << "Bureaucrat: String & Int Constructor" << std::endl;
+//	std::cout << "Bureaucrat: String & Int Constructor" << std::endl;
 	this->setGrade(grade);
 }
 
 Bureaucrat::~Bureaucrat (void) {
-	std::cout << "Bureaucrat: Destructor" << std::endl;
+//	std::cout << "Bureaucrat: Destructor" << std::endl;
 }
 
 Bureaucrat &	Bureaucrat::operator= (Bureaucrat const & rhs) {
-	std::cout << "Bureaucrat: Assign Operator" << std::endl;
+//	std::cout << "Bureaucrat: Assign Operator" << std::endl;
 	this->setGrade(rhs._grade);
 	return *this;
 }

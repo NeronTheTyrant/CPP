@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:55:21 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/14 15:59:52 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/14 18:08:03 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ class	Form {
 		void	setExecGrade (int grade);
 
 		void	beSigned (Bureaucrat const & b);
+		virtual void	execute (Bureaucrat const & executor) = 0;
+		void	checkExecute (Bureaucrat const & executor) const ;
 
 		class GradeTooHighException : public std::exception {
 			virtual const char *	what (void) const throw() {return "Grade too high";};};
