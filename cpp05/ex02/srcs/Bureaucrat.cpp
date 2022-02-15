@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:18:59 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/14 17:36:58 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/15 18:58:59 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,17 @@ void	Bureaucrat::signForm (Form & f) {
 	}
 	catch (std::exception & e) {
 		std::cout << *this << " couldn't sign " << f
+			<< " because " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm (Form const & f) {
+	try {
+		f.execute(*this);
+		std::cout << *this << " executed " << f << std::endl;
+	}
+	catch (std::exception & e) {
+		std::cout << *this << " couldn't execute " << f
 			<< " because " << e.what() << std::endl;
 	}
 }

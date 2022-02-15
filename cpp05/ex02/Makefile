@@ -6,7 +6,7 @@
 #    By: mlebard <mlebard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 17:27:08 by mlebard           #+#    #+#              #
-#    Updated: 2022/02/14 15:54:49 by mlebard          ###   ########.fr        #
+#    Updated: 2022/02/15 19:13:00 by mlebard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,13 +23,16 @@ O_DIR		=	bin/obj/
 CC			=	c++
 CFLAGS		=	-Werror -Wextra -Wall -std=c++98 -I$(I_DIR)
 LDFLAGS		=	
-DEPND		=	Bureaucrat.hpp Form.hpp
+DEPND		=	Bureaucrat.hpp Form.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 DEPEND 		=	$(addprefix $(I_DIR), $(DEPND))
 
 # SRCS
 SOURCES		=	main.cpp \
 				Bureaucrat.cpp \
-				Form.cpp
+				Form.cpp \
+				ShrubberyCreationForm.cpp \
+				RobotomyRequestForm.cpp \
+				PresidentialPardonForm.cpp
 SRCS		=	$(addprefix $(S_DIR),$(SOURCES))
 
 # OBJS

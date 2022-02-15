@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:44:57 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/14 16:01:30 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/15 18:55:26 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ class	Bureaucrat {
 		void	addGrade (void);
 		void	subGrade (void);
 		void	signForm (Form & f);
+		void	executeForm (Form const & f);
 
 		class GradeTooHighException : public std::exception {
 			virtual const char *	what (void) const throw()

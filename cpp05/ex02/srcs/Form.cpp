@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:54:02 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/14 18:09:42 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/15 19:37:37 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 Form::Form (void)
 	: _name("none"), _signed(0), _signGrade(150), _execGrade(150) {
 //	std::cout << "Form: Default Constructor" << std::endl;
+	this->_target = "default target";
 }
 
 Form::Form(Form const & copy) {
@@ -29,6 +30,7 @@ Form::Form (std::string const & name, int signGrade, int execGrade)
 //	std::cout << "Form: Full Constructor" << std::endl;
 	this->setSignGrade(signGrade);
 	this->setExecGrade(execGrade);
+	this->_target = "default target";
 }
 
 Form::~Form (void) {
@@ -37,15 +39,19 @@ Form::~Form (void) {
 
 Form &	Form::operator= (Form const & rhs) {
 //	std::cout << "Form: Assign Operator" << std::endl;
-	this->_name = rhs._name;
 	this->_signed = rhs._signed;
 	this->setSignGrade(rhs._signGrade);
 	this->setExecGrade(rhs._execGrade);
+	this->_target = rhs._target;
 	return *this;
 }
 
 std::string const &	Form::getName (void) const {
 	return this->_name;
+}
+
+std::string const & Form::getTarget (void) const {
+	return this->_target;
 }
 
 bool	Form::isSigned (void) const {
@@ -58,6 +64,10 @@ int	Form::getSignGrade (void) const {
 
 int	Form::getExecGrade (void) const {
 	return this->_execGrade;
+}
+
+void	Form::setTarget (std::string const & target) {
+	this->_target = target;
 }
 
 void	Form::setSignGrade (int grade) {
@@ -84,7 +94,11 @@ void	Form::beSigned (Bureaucrat const & b) {
 }
 
 void	Form::checkExecute (Bureaucrat const & executor) const {
-	if 
+	if (this->_signed == 0)
+		throw Form::FormNotSignedException();
+	if (executor.getGrade() > this->getExecGrade())
+		throw Form::GradeTooLowException();
+}
 
 std::ostream &	operator<< (std::ostream & o, Form const & rhs) {
 	o << "Form " << rhs.getName() << ", ";
