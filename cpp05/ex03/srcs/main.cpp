@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 15:45:22 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/15 22:23:11 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/16 02:21:30 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 #include <iostream>
 
 void	makeInvalidBureaucrats (void) {
@@ -106,6 +107,17 @@ void	execTests (void) {
 	JASON.executeForm(gargleblaster);
 }
 
+void	internTest (void) {
+	Intern	jeff;
+
+	Form *	f;
+	f = jeff.makeForm("shrubbery creation", "bonjour");
+	Bureaucrat	JASON("JAAAAAAAAAAASON", 25);
+	JASON.signForm(*f);
+	JASON.executeForm(*f);
+	jeff.makeForm("nonexistant form", "bonjour");
+}
+
 int	main (void) {
 
 	makeInvalidBureaucrats();
@@ -113,5 +125,5 @@ int	main (void) {
 //	validForms();
 //	invalidForms();
 	execTests();
-
+	internTest();
 }

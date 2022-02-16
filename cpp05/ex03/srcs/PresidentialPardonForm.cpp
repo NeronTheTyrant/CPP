@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:40:52 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/15 22:15:03 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/16 01:17:31 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,8 @@ PresidentialPardonForm &	PresidentialPardonForm::operator= (PresidentialPardonFo
 void	PresidentialPardonForm::executeForm (void) const {
 	std::cout << "Zaphod Beeblebrox ingests one too many Pan Galactic Gargle Blasters and pardons "
 		<< this->getTarget() << "." << std::endl;
+}
+
+Form *	newPresidentialPardonForm (std::string const & target) {
+	return new PresidentialPardonForm(target);
 }

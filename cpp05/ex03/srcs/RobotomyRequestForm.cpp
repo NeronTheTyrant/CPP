@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 17:27:04 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/15 22:14:57 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/16 01:53:11 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,8 @@ void	RobotomyRequestForm::executeForm (void) const {
 		std::cout << "The robotomy on " << this->getTarget() << " was a success! Now go steal a ship or something!" << std::endl;
 	else
 		std::cout << "Uh oh, the robotomy on " << this->getTarget() << " didn't work. Better try again!" << std::endl;
+}
+
+Form *	newRobotomyRequestForm (std::string const & target) {
+	return new RobotomyRequestForm(target);
 }

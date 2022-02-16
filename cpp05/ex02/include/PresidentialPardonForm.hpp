@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 16:40:50 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/15 19:35:42 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/15 22:15:11 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	PresidentialPardonForm : public Form {
 		~PresidentialPardonForm (void);
 
 		PresidentialPardonForm & operator=(PresidentialPardonForm const & rhs);
-		void	execute (Bureaucrat const & executor) const;
+		void	executeForm (void) const;
 };
 
 #endif

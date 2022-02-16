@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:15:39 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/15 22:14:48 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/16 01:54:10 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,8 @@ void	ShrubberyCreationForm::executeForm (void) const {
 		throw std::runtime_error("Error while creating new file");
 	ofs << SHRUBBERY;
 	ofs.close();
+}
+
+Form *	newShrubberyCreationForm (std::string const & target) {
+	return new ShrubberyCreationForm(target);
 }

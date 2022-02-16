@@ -6,7 +6,7 @@
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:17:15 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/15 22:15:24 by mlebard          ###   ########.fr       */
+/*   Updated: 2022/02/16 01:54:07 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,10 @@ class	ShrubberyCreationForm : public Form {
 		~ShrubberyCreationForm (void);
 
 		ShrubberyCreationForm & operator=(ShrubberyCreationForm const & rhs);
+
 		void	executeForm (void) const ;
 };
+
+Form *	newShrubberyCreationForm (std::string const & target);
 
 #endif

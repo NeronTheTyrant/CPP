@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/15 18:17:15 by mlebard           #+#    #+#             */
-/*   Updated: 2022/02/15 22:15:24 by mlebard          ###   ########.fr       */
+/*   Created: 2022/02/15 17:25:58 by mlebard           #+#    #+#             */
+/*   Updated: 2022/02/16 01:53:06 by mlebard          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-# define SHRUBBERYCREATIONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+# define ROBOTOMYREQUESTFORM_HPP
 
 # include <string>
 # include "Form.hpp"
 
-class	ShrubberyCreationForm : public Form {
+class	RobotomyRequestForm : public Form {
 	public:
-		ShrubberyCreationForm (void);
-		ShrubberyCreationForm (ShrubberyCreationForm const & copy);
-		ShrubberyCreationForm (std::string const & target);
-		~ShrubberyCreationForm (void);
+		RobotomyRequestForm (void);
+		RobotomyRequestForm (RobotomyRequestForm const & copy);
+		RobotomyRequestForm (std::string const & target);
+		~RobotomyRequestForm (void);
 
-		ShrubberyCreationForm & operator=(ShrubberyCreationForm const & rhs);
-		void	executeForm (void) const ;
+		RobotomyRequestForm & operator=(RobotomyRequestForm const & rhs);
+
+		void	executeForm (void) const;
 };
+
+Form *	newRobotomyRequestForm (std::string const & target);
 
 #endif
