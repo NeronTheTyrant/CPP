@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-# NAM
-NAME		=	conv
+# NAME
+NAME		=	ReinterpretCast
 
 # DIR
 S_DIR		=	srcs/
@@ -23,11 +23,10 @@ O_DIR		=	bin/obj/
 CC			=	c++
 CFLAGS		=	-Werror -Wextra -Wall -std=c++98 -I$(I_DIR)
 LDFLAGS		=	
-DEPEND		=	$(I_DIR)ScalConv.hpp
+DEPEND		=
 
 # SRCS
-SOURCES		=	main.cpp \
-				ScalConv.cpp
+SOURCES		=	main.cpp
 SRCS		=	$(addprefix $(S_DIR),$(SOURCES))
 
 # OBJS

@@ -6,12 +6,12 @@
 #    By: mlebard <mlebard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 17:27:08 by mlebard           #+#    #+#              #
-#    Updated: 2022/02/18 22:59:48 by mlebard          ###   ########.fr        #
+#    Updated: 2022/02/09 15:52:05 by mlebard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# NAM
-NAME		=	conv
+# NAME
+NAME		=	DynamicCast
 
 # DIR
 S_DIR		=	srcs/
@@ -21,13 +21,12 @@ O_DIR		=	bin/obj/
 
 # COMPILE
 CC			=	c++
-CFLAGS		=	-Werror -Wextra -Wall -std=c++98 -I$(I_DIR)
+CFLAGS		=	-Werror -Wextra -Wall -std=c++98
 LDFLAGS		=	
-DEPEND		=	$(I_DIR)ScalConv.hpp
+DEPEND		=
 
 # SRCS
-SOURCES		=	main.cpp \
-				ScalConv.cpp
+SOURCES		=	main.cpp
 SRCS		=	$(addprefix $(S_DIR),$(SOURCES))
 
 # OBJS
