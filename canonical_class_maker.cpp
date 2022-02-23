@@ -21,6 +21,8 @@
 "		~default (void);\n" \
 "\n" \
 "		default & operator=(default const & rhs);\n" \
+"\n" \
+"		static bool verbose;\n" \
 "	private:\n"\
 "		\n" \
 "};\n" \
@@ -32,21 +34,27 @@
 "#include <iostream>\n" \
 "\n" \
 "default::default (void) {\n" \
-"	std::cout << \"default: Default Constructor\" << std::endl;\n" \
+"	if (default::verbose)\n" \
+"		std::cout << \"default: Default Constructor\" << std::endl;\n" \
 "}\n" \
 "\n" \
-"default::default(default const & copy) {\n" \
-"	std::cout << \"default: Copy Constructor\" << std::endl;\n" \
+"default::default (default const & copy) {\n" \
+"	if (default::verbose)\n" \
+"		std::cout << \"default: Copy Constructor\" << std::endl;\n" \
 "	*this = copy;\n" \
 "}\n" \
 "\n" \
 "default::~default (void) {\n" \
-"	std::cout << \"default: Destructor\" << std::endl;\n" \
+"	if (default::verbose)\n" \
+"		std::cout << \"default: Destructor\" << std::endl;\n" \
 "}\n" \
 "\n" \
 "default &	default::operator= (default const & rhs) {\n" \
-"	std::cout << \"default: Assign Operator\" << std::endl;\n" \
-"}"
+"	if (default::verbose)\n" \
+"		std::cout << \"default: Assign Operator\" << std::endl;\n" \
+"}\n" \
+"\n" \
+"bool	default::verbose = false;"
 
 #include <iostream>
 #include <fstream>

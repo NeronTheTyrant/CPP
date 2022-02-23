@@ -23,10 +23,11 @@ O_DIR		=	bin/obj/
 CC			=	c++
 CFLAGS		=	-Werror -Wextra -Wall -std=c++98 -I$(I_DIR)
 LDFLAGS		=	
-DEPEND		=
+DEPEND		=	$(I_DIR)ScalConv.hpp
 
 # SRCS
-SOURCES		=	main.cpp
+SOURCES		=	main.cpp \
+				ScalConv.cpp
 SRCS		=	$(addprefix $(S_DIR),$(SOURCES))
 
 # OBJS
