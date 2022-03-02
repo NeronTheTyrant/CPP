@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mlebard <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/03/02 17:52:04 by mlebard           #+#    #+#             */
+/*   Updated: 2022/03/02 18:08:03 by mlebard          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ARRAY_HPP
 # define ARRAY_HPP
 
@@ -60,6 +72,10 @@ class	Array {
 			virtual const char *	what (void) const throw()
 			{return "Array access is out of bounds";};
 		};
+
+		size_t	size (void) const {
+			return this->_size;
+		}
 };
 
 template <typename T>

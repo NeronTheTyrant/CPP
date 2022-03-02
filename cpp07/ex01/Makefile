@@ -6,7 +6,7 @@
 #    By: mlebard <mlebard@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/27 17:27:08 by mlebard           #+#    #+#              #
-#    Updated: 2022/02/09 15:52:05 by mlebard          ###   ########.fr        #
+#    Updated: 2022/03/02 17:50:49 by mlebard          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ O_DIR		=	bin/obj/
 CC			=	c++
 CFLAGS		=	-Werror -Wextra -Wall -std=c++98 -I$(I_DIR)
 LDFLAGS		=	
-DEPEND		=	
+DEPEND		=	$(I_DIR)iter.hpp
 
 # SRCS
 SOURCES		=	main.cpp
